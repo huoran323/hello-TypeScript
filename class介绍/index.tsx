@@ -136,3 +136,23 @@ console.log(p.firstName);
 // p.lastName = "hehe";
 p.setLastName("world");
 p.getLastName();
+
+// constructor
+// 构造方法
+
+// 如果申明为protected
+// 或者 private ，当前类不能 new
+
+//   当父类申明为 protected，子类重写 constructor 方法后可以 new （子类可以 new ）
+
+// 如果父类申明为 private, 子类不能 new 和 extends
+
+// super() 在constructor方法中是调用父类的 构造方法，必要时，要传入参数。
+
+// 作用
+
+// 1， 当不想被实例化，而只想让子类继承后实例化，可以申请为 protected
+
+// 2. 都不想让子类和父类实例化或继承，可以申请为 private
+
+// 3. 一般情况下，申请为 public(或不写）
