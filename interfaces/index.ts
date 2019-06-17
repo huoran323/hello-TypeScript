@@ -71,7 +71,7 @@ interface Pay {
 const do_pay = (pay: Pay) => {
   // 有一些逻辑
   console.log("do_pay");
-  // pay相当于是实现这个接口的类对象
+  // pay相当于是实现这个接口的类对象，调用类对象中的接口方法(post)
   pay.post();
 };
 
