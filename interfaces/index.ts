@@ -61,6 +61,7 @@ em.greet();
 let em2: Person = new Employee();
 em2.greet();
 
+//////////////////////////////////
 // 示例
 // 支付接口
 interface Pay {
@@ -100,3 +101,76 @@ do_pay(we_pay); // 先进行do_pay中的一些逻辑运算，再执行微信支�
 
 // 支付宝支付
 do_pay(ali_pay);
+
+//////////////////////////////////////////
+
+/// 继承与实现多个接口
+interface Person {
+  name: string;
+}
+
+interface Employee {
+  age: number;
+}
+
+// 继承另一个接口 Person
+// 会继承 Person 的属性的方法
+interface Programmer extends Person {
+  age: number;
+}
+
+let p: Programmer = {
+  age: 27,
+  name: "rails365"
+};
+
+// 类不能继承多个类，也就是说不能有多个父类
+// 但可以实现多个接口
+// 每个接口的属性和方法都要实现
+class P implements Person, Employee {
+  name: string;
+  age: number;
+}
+
+let p1: P = {
+  name: "rails365",
+  age: 25
+};
+
+let p2: Person = p1;
+
+let p3: Employee = p1;
+
+////////////////////////////////////////
+// 接口继承类
+class Component {
+  private width: number;
+  private height: number;
+
+  constructor(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+  }
+
+  display(): void {
+    console.log(this.height);
+  }
+}
+
+// 接口继承类，可以继承多个类
+// 继承类的方法和属性，但可以不用实现方法
+// 也可以定义自己的方法和属性
+interface Widget extends Component {
+  hide(): void;
+}
+
+class Button extends Component implements Widget {
+  hide(): void {
+    console.log("hiding");
+  }
+}
+
+let w: Widget = new Button(1, 2);
+console.log(w);
+w.display();
+w.hide();
