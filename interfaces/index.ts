@@ -143,6 +143,7 @@ let p3: Employee = p1;
 
 ////////////////////////////////////////
 // 接口继承类
+// 定义类的属性和方法
 class Component {
   private width: number;
   private height: number;
@@ -159,7 +160,7 @@ class Component {
 
 // 接口继承类，可以继承多个类
 // 继承类的方法和属性，但可以不用实现方法
-// 也可以定义自己的方法和属性
+// 也可以定义自己的方法和属性（定义了自己的属性和方法后，实现接口的类，需要实现这些属性和方法）
 interface Widget extends Component {
   hide(): void;
 }
@@ -174,3 +175,31 @@ let w: Widget = new Button(1, 2);
 console.log(w);
 w.display();
 w.hide();
+
+//////////////////////////////////////
+// 接口索引属性
+// 索引属性一定是string或number
+interface States {
+  [index: string]: boolean;
+}
+
+let s: States = { enabled: true, maximized: false };
+console.log(s);
+console.log(s["enabled"]);
+
+interface States1 {
+  // An index signature parameter type must be 'string' or 'number'.
+  // number索引可以是一个数组
+  // 这种方式定义的数组没有 push length join 等属性或方法
+  [index: number]: number;
+}
+
+let s1: States1 = [12, 34, 45, 1];
+console.log(s1);
+console.log(s1[0]);
+
+let s2: number[] = [1, 2, 3];
+
+// let x = {a: 1, b: 2};
+// x['a'] // 1
+// x['b'] // 2
