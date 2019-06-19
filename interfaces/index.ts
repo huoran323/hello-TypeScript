@@ -203,3 +203,42 @@ let s2: number[] = [1, 2, 3];
 // let x = {a: 1, b: 2};
 // x['a'] // 1
 // x['b'] // 2
+
+/////////////////////////////////
+// 如何处理列表数据
+interface Todo {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+class Todo1 {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+let todo: Todo = {
+  userId: 1,
+  id: 1,
+  title: "delectus aut autem",
+  completed: false
+};
+
+// 也可以是Todo[]
+let todos: Todo1[] = [
+  {
+    userId: 1,
+    id: 1,
+    title: "delectus aut autem",
+    completed: false
+  },
+  {
+    userId: 1,
+    id: 2,
+    title: "quis ut nam facilis et officia qui",
+    completed: false
+  }
+];
