@@ -54,3 +54,55 @@ const add = (a: number, ...num: number[]): number => {
 
 let sum = add(20, 20, 30, 40);
 console.log(sum);
+
+/////////////////////////////
+// 五种定义函数类型的方法
+// 1
+
+let a: any;
+
+a = function(): void {
+  console.log("It work");
+};
+
+function fun(): any {
+  return function(): void {
+    console.log("It work");
+  };
+}
+
+// 2
+
+let c: Function;
+
+c = function(): void {
+  console.log("It work");
+};
+
+// c = "xxx"
+
+// 3
+// 定义d的类型是函数，参数为para，返回值类型为string
+let d: (para: string) => string;
+
+d = function(pass: string): string {
+  return pass;
+};
+
+// 4
+// 类型别名
+type e = (para: string) => string;
+
+const f: e = function(pass: string): string {
+  return pass;
+};
+
+// 5
+
+interface g {
+  // 参数 返回值
+  // 函数类型
+  (para: string): string;
+}
+
+const h: g = (pass: string) => pass;
